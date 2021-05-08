@@ -10,7 +10,6 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
-  final apiService = APIService(API.sandbox());
   int? _cases;
   int? _casesSuspected;
   int? _casesConfirmed;
@@ -24,7 +23,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
   }
 
   void _updateCases() async {
+    final apiService = APIService(API.sandbox());
     final accessToken = await apiService.getAccessToken();
+
     final cases = await apiService.getEndpointData(
       accessToken: accessToken,
       endpoint: Endpoint.cases,

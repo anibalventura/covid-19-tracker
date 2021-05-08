@@ -12,7 +12,6 @@ enum Endpoint {
 class API {
   API({@required this.apiKey});
   final String? apiKey;
-
   factory API.sandbox() => API(apiKey: APIKeys.covSandboxKey);
 
   static const String _host = "ncov2019-admin.firebaseapp.com";
