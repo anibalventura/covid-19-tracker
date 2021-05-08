@@ -1,1 +1,1 @@
-# covid_19_app
+# COVID-19 App
