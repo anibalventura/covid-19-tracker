@@ -1,4 +1,5 @@
 import 'package:covid_19_app/data/models/endpoint_card_model.dart';
+import 'package:covid_19_app/data/models/endpoints_model.dart';
 import 'package:covid_19_app/services/api/api.dart';
 import 'package:covid_19_app/utils/localizations.dart';
 import 'package:covid_19_app/utils/utils.dart';
@@ -9,16 +10,14 @@ import 'package:intl/intl.dart';
 class EndpointCard extends StatelessWidget {
   const EndpointCard({
     required this.endpoint,
-    required this.value,
+    required this.endpointsData,
   });
 
   final Endpoint? endpoint;
-  final int? value;
+  final EndpointsData? endpointsData;
 
   @override
   Widget build(BuildContext context) {
-    final nf = NumberFormat('###,###');
-
     final Map<Endpoint, EndpointCardData> _cardsData = {
       Endpoint.cases: EndpointCardData(
         title: translate(context, AppText.cases),
@@ -49,6 +48,15 @@ class EndpointCard extends StatelessWidget {
 
     final EndpointCardData _cardData = _cardsData[endpoint]!;
 
+    String _endpointValue() {
+      if (endpointsData != null) {
+        final nf = NumberFormat('#,###');
+        final value = nf.format(endpointsData!.values[endpoint]!.value);
+        return value;
+      }
+      return '';
+    }
+
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 0.01.sh),
       child: Card(
@@ -78,7 +86,7 @@ class EndpointCard extends StatelessWidget {
                     fit: BoxFit.fill,
                   ),
                   Text(
-                    nf.format(value),
+                    _endpointValue(),
                     style: theme(context).textTheme.bodyText1!.copyWith(
                           color: _cardData.color,
                         ),

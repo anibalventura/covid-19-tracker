@@ -72,6 +72,7 @@ class AppText {
   * Dashboard Screen.
   */
 
+  static String lastUpdated = 'lastUpdated';
   static String cases = 'cases';
   static String casesSuspected = 'casesSuspected';
   static String casesConfirmed = 'casesConfirmed';

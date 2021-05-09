@@ -1,12 +1,13 @@
+import 'package:covid_19_app/data/models/endpoint_model.dart';
 import 'package:covid_19_app/services/api/api.dart';
 
 class EndpointsData {
   EndpointsData({required this.values});
-  final Map<Endpoint, int> values;
+  final Map<Endpoint, EndpointData> values;
 
-  int? get cases => values[Endpoint.cases];
-  int? get casesSuspected => values[Endpoint.casesSuspected];
-  int? get casesConfirmed => values[Endpoint.casesConfirmed];
-  int? get deaths => values[Endpoint.deaths];
-  int? get recovered => values[Endpoint.recovered];
+  EndpointData? get cases => values[Endpoint.cases];
+  EndpointData? get casesSuspected => values[Endpoint.casesSuspected];
+  EndpointData? get casesConfirmed => values[Endpoint.casesConfirmed];
+  EndpointData? get deaths => values[Endpoint.deaths];
+  EndpointData? get recovered => values[Endpoint.recovered];
 }

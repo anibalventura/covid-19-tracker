@@ -1,6 +1,7 @@
 import 'package:covid_19_app/data/repository/data_repository.dart';
 import 'package:covid_19_app/data/models/endpoints_model.dart';
 import 'package:covid_19_app/services/api/api.dart';
+import 'package:covid_19_app/ui/widgets/last_update_text.dart';
 import 'package:covid_19_app/utils/localizations.dart';
 import 'package:covid_19_app/utils/utils.dart';
 import 'package:covid_19_app/ui/widgets/endpoint_card.dart';
@@ -47,12 +48,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
               onRefresh: _updateData,
               child: ListView(
                 children: [
+                  LastUpdateText(
+                    endpointsData: _endpointsData,
+                  ),
                   for (var endpoint in Endpoint.values)
                     EndpointCard(
                       endpoint: endpoint,
-                      value: _endpointsData != null
-                          ? _endpointsData!.values[endpoint]
-                          : 0,
+                      endpointsData: _endpointsData,
                     ),
                 ],
               ),

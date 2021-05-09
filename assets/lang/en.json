@@ -4,5 +4,6 @@
   "casesSuspected": "Cases Suspected",
   "casesConfirmed": "Cases Confirmed",
   "deaths": "Deaths",
-  "recovered": "Recovered"
+  "recovered": "Recovered",
+  "lastUpdated": "Last updated:"
 }

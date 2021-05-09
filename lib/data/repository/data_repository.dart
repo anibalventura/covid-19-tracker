@@ -10,13 +10,6 @@ class DataRepository extends ChangeNotifier {
   final APIService apiService;
   String? _accessToken;
 
-  // Future<int> getEndpointData(Endpoint endpoint) async {
-  //   return _getDataRefreshingToken<int>(
-  //     onGetData: () => apiService.getEndpointData(
-  //         accessToken: _accessToken!, endpoint: endpoint),
-  //   );
-  // }
-
   Future<EndpointsData> getAllEndpointsData() async {
     return _getDataRefreshingToken<EndpointsData>(
       onGetData: _getAllEndpointsData,
@@ -43,15 +36,25 @@ class DataRepository extends ChangeNotifier {
   Future<EndpointsData> _getAllEndpointsData() async {
     final values = await Future.wait([
       apiService.getEndpointData(
-          accessToken: _accessToken!, endpoint: Endpoint.cases),
+        accessToken: _accessToken!,
+        endpoint: Endpoint.cases,
+      ),
       apiService.getEndpointData(
-          accessToken: _accessToken!, endpoint: Endpoint.casesSuspected),
+        accessToken: _accessToken!,
+        endpoint: Endpoint.casesSuspected,
+      ),
       apiService.getEndpointData(
-          accessToken: _accessToken!, endpoint: Endpoint.casesConfirmed),
+        accessToken: _accessToken!,
+        endpoint: Endpoint.casesConfirmed,
+      ),
       apiService.getEndpointData(
-          accessToken: _accessToken!, endpoint: Endpoint.deaths),
+        accessToken: _accessToken!,
+        endpoint: Endpoint.deaths,
+      ),
       apiService.getEndpointData(
-          accessToken: _accessToken!, endpoint: Endpoint.recovered),
+        accessToken: _accessToken!,
+        endpoint: Endpoint.recovered,
+      ),
     ]);
 
     return EndpointsData(

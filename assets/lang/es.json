@@ -4,5 +4,6 @@
   "casesSuspected": "Casos Sospechados",
   "casesConfirmed": "Casos Confirmados",
   "deaths": "Muertes",
-  "recovered": "Recuperados"
+  "recovered": "Recuperados",
+  "lastUpdated": "Ultima actualización:"
 }
