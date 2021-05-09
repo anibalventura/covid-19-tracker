@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:covid_19_app/services/api.dart';
+import 'package:covid_19_app/services/api/api.dart';
 
 class APIService {
   APIService(this._api);

@@ -1,7 +1,7 @@
-import 'package:covid_19_app/data/data_repository.dart';
+import 'package:covid_19_app/data/repository/data_repository.dart';
 import 'package:covid_19_app/screens/dashboard_screen.dart';
-import 'package:covid_19_app/services/api.dart';
-import 'package:covid_19_app/services/api_services.dart';
+import 'package:covid_19_app/services/api/api.dart';
+import 'package:covid_19_app/services/api/api_services.dart';
 import 'package:covid_19_app/utils/localizations.dart';
 import 'package:covid_19_app/utils/themes.dart';
 import 'package:flutter/material.dart';

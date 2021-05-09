@@ -1,9 +1,9 @@
-import 'package:covid_19_app/data/data_repository.dart';
-import 'package:covid_19_app/data/endpoints_data.dart';
-import 'package:covid_19_app/services/api.dart';
+import 'package:covid_19_app/data/repository/data_repository.dart';
+import 'package:covid_19_app/data/model/endpoints_model.dart';
+import 'package:covid_19_app/services/api/api.dart';
 import 'package:covid_19_app/utils/localizations.dart';
 import 'package:covid_19_app/utils/utils.dart';
-import 'package:covid_19_app/widgets/info_card.dart';
+import 'package:covid_19_app/widgets/endpoint_card.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -48,7 +48,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               child: ListView(
                 children: [
                   for (var endpoint in Endpoint.values)
-                    InfoCard(
+                    EndpointCard(
                       endpoint: endpoint,
                       value: _endpointsData != null
                           ? _endpointsData!.values[endpoint]

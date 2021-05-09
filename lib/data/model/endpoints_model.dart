@@ -1,4 +1,4 @@
-import 'package:covid_19_app/services/api.dart';
+import 'package:covid_19_app/services/api/api.dart';
 
 class EndpointsData {
   EndpointsData({required this.values});
