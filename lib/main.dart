@@ -1,9 +1,9 @@
-import 'package:covid_19_app/data/repository/data_repository.dart';
-import 'package:covid_19_app/ui/screens/dashboard_screen.dart';
-import 'package:covid_19_app/services/api/api.dart';
-import 'package:covid_19_app/services/api/api_services.dart';
-import 'package:covid_19_app/utils/localizations.dart';
-import 'package:covid_19_app/utils/themes.dart';
+import 'package:covid_19_tracker/data/repository/data_repository.dart';
+import 'package:covid_19_tracker/ui/screens/dashboard_screen.dart';
+import 'package:covid_19_tracker/services/api/api.dart';
+import 'package:covid_19_tracker/services/api/api_services.dart';
+import 'package:covid_19_tracker/utils/localizations.dart';
+import 'package:covid_19_tracker/utils/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';

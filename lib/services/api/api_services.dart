@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:covid_19_app/data/models/endpoint_model.dart';
+import 'package:covid_19_tracker/data/models/endpoint_model.dart';
 import 'package:http/http.dart' as http;
-import 'package:covid_19_app/services/api/api.dart';
+import 'package:covid_19_tracker/services/api/api.dart';
 
 class APIService {
   APIService(this._api);

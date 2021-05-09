@@ -1,4 +1,4 @@
-import 'package:covid_19_app/utils/utils.dart';
+import 'package:covid_19_tracker/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

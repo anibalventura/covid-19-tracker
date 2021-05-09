@@ -1,13 +1,13 @@
 import 'dart:io';
 
-import 'package:covid_19_app/data/repository/data_repository.dart';
-import 'package:covid_19_app/data/models/endpoints_model.dart';
-import 'package:covid_19_app/services/api/api.dart';
-import 'package:covid_19_app/ui/widgets/last_update_text.dart';
-import 'package:covid_19_app/ui/widgets/snackbar.dart';
-import 'package:covid_19_app/utils/localizations.dart';
-import 'package:covid_19_app/utils/utils.dart';
-import 'package:covid_19_app/ui/widgets/endpoint_card.dart';
+import 'package:covid_19_tracker/data/repository/data_repository.dart';
+import 'package:covid_19_tracker/data/models/endpoints_model.dart';
+import 'package:covid_19_tracker/services/api/api.dart';
+import 'package:covid_19_tracker/ui/widgets/last_update_text.dart';
+import 'package:covid_19_tracker/ui/widgets/snackbar.dart';
+import 'package:covid_19_tracker/utils/localizations.dart';
+import 'package:covid_19_tracker/utils/utils.dart';
+import 'package:covid_19_tracker/ui/widgets/endpoint_card.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

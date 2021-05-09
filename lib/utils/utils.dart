@@ -1,4 +1,4 @@
-import 'package:covid_19_app/utils/localizations.dart';
+import 'package:covid_19_tracker/utils/localizations.dart';
 import 'package:flutter/material.dart';
 
 ThemeData theme(BuildContext context) {

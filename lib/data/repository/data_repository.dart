@@ -1,6 +1,6 @@
-import 'package:covid_19_app/data/models/endpoints_model.dart';
-import 'package:covid_19_app/services/api/api.dart';
-import 'package:covid_19_app/services/api/api_services.dart';
+import 'package:covid_19_tracker/data/models/endpoints_model.dart';
+import 'package:covid_19_tracker/services/api/api.dart';
+import 'package:covid_19_tracker/services/api/api_services.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 
