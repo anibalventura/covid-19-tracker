@@ -5,5 +5,7 @@
   "casesConfirmed": "Cases Confirmed",
   "deaths": "Deaths",
   "recovered": "Recovered",
-  "lastUpdated": "Last updated:"
+  "lastUpdated": "Last updated:",
+  "errorNoInternet": "Cannot update: no internet connection.",
+  "errorGeneral": "Unknown error: please try again later."
 }

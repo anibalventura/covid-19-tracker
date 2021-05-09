@@ -54,7 +54,7 @@ class EndpointCard extends StatelessWidget {
         final value = nf.format(endpointsData!.values[endpoint]!.value);
         return value;
       }
-      return '';
+      return '-';
     }
 
     return Padding(

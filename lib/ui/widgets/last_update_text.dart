@@ -17,7 +17,7 @@ class LastUpdateText extends StatelessWidget {
   Widget build(BuildContext context) {
     String _lastUpdatedText() {
       if (endpointsData != null) {
-        final DateFormat formatter = DateFormat.yMd().add_Hms();
+        final DateFormat formatter = DateFormat('d MMM yyyy').add_Hms();
         final String date =
             formatter.format(endpointsData!.values[Endpoint.cases]!.date!);
         return '${translate(context, AppText.lastUpdated)} $date';

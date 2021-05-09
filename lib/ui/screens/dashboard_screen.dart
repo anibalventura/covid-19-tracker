@@ -1,7 +1,10 @@
+import 'dart:io';
+
 import 'package:covid_19_app/data/repository/data_repository.dart';
 import 'package:covid_19_app/data/models/endpoints_model.dart';
 import 'package:covid_19_app/services/api/api.dart';
 import 'package:covid_19_app/ui/widgets/last_update_text.dart';
+import 'package:covid_19_app/ui/widgets/snackbar.dart';
 import 'package:covid_19_app/utils/localizations.dart';
 import 'package:covid_19_app/utils/utils.dart';
 import 'package:covid_19_app/ui/widgets/endpoint_card.dart';
@@ -19,12 +22,24 @@ class _DashboardScreenState extends State<DashboardScreen> {
   EndpointsData? _endpointsData;
 
   Future<void> _updateData() async {
-    final dataRepository = Provider.of<DataRepository>(context, listen: false);
-    final endpointsData = await dataRepository.getAllEndpointsData();
-
-    setState(() {
-      _endpointsData = endpointsData;
-    });
+    try {
+      final dataRepository =
+          Provider.of<DataRepository>(context, listen: false);
+      final endpointsData = await dataRepository.getAllEndpointsData();
+      setState(() {
+        _endpointsData = endpointsData;
+      });
+    } on SocketException catch (_) {
+      showSnackbar(
+        context: context,
+        msg: translate(context, AppText.errorNoInternet),
+      );
+    } catch (_) {
+      showSnackbar(
+        context: context,
+        msg: translate(context, AppText.errorGeneral),
+      );
+    }
   }
 
   @override

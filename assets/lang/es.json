@@ -5,5 +5,7 @@
   "casesConfirmed": "Casos Confirmados",
   "deaths": "Muertes",
   "recovered": "Recuperados",
-  "lastUpdated": "Ultima actualización:"
+  "lastUpdated": "Ultima actualización:",
+  "errorNoInternet": "No se puede actualizar: no hay conexión a Internet.",
+  "errorGeneral": "Error desconocido: inténtelo de nuevo más tarde."
 }

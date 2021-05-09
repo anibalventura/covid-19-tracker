@@ -78,4 +78,6 @@ class AppText {
   static String casesConfirmed = 'casesConfirmed';
   static String deaths = 'deaths';
   static String recovered = 'recovered';
+  static String errorNoInternet = 'errorNoInternet';
+  static String errorGeneral = 'errorGeneral';
 }
