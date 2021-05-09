@@ -1,4 +1,4 @@
-import 'package:covid_19_app/repositories/endpoints_data.dart';
+import 'package:covid_19_app/data/endpoints_data.dart';
 import 'package:covid_19_app/services/api.dart';
 import 'package:covid_19_app/services/api_services.dart';
 import 'package:flutter/material.dart';
@@ -10,12 +10,12 @@ class DataRepository extends ChangeNotifier {
   final APIService apiService;
   String? _accessToken;
 
-  Future<int> getEndpointData(Endpoint endpoint) async {
-    return _getDataRefreshingToken<int>(
-      onGetData: () => apiService.getEndpointData(
-          accessToken: _accessToken!, endpoint: endpoint),
-    );
-  }
+  // Future<int> getEndpointData(Endpoint endpoint) async {
+  //   return _getDataRefreshingToken<int>(
+  //     onGetData: () => apiService.getEndpointData(
+  //         accessToken: _accessToken!, endpoint: endpoint),
+  //   );
+  // }
 
   Future<EndpointsData> getAllEndpointsData() async {
     return _getDataRefreshingToken<EndpointsData>(

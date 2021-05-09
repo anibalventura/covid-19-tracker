@@ -1,5 +1,5 @@
-import 'package:covid_19_app/repositories/data_repository.dart';
-import 'package:covid_19_app/repositories/endpoints_data.dart';
+import 'package:covid_19_app/data/data_repository.dart';
+import 'package:covid_19_app/data/endpoints_data.dart';
 import 'package:covid_19_app/services/api.dart';
 import 'package:covid_19_app/utils/localizations.dart';
 import 'package:covid_19_app/utils/utils.dart';

@@ -1,4 +1,4 @@
-import 'package:covid_19_app/repositories/data_repository.dart';
+import 'package:covid_19_app/data/data_repository.dart';
 import 'package:covid_19_app/screens/dashboard_screen.dart';
 import 'package:covid_19_app/services/api.dart';
 import 'package:covid_19_app/services/api_services.dart';
