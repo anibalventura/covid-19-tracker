@@ -77,7 +77,7 @@ class Themes {
   );
 
   // Final Theme.
-  static final ThemeData darkTheme = ThemeData(
+  static final ThemeData darkTheme = ThemeData.dark().copyWith(
     primaryColor: _primaryColorDark,
     appBarTheme: _appBarTheme,
     scaffoldBackgroundColor: _darkBackgroundColor,
@@ -87,6 +87,5 @@ class Themes {
       headline1: _darkHeadline1,
       bodyText1: _darkBodyText1,
     ),
-    fontFamily: _fontFamily,
   );
 }

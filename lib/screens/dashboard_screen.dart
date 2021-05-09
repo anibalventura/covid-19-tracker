@@ -1,6 +1,6 @@
 import 'package:covid_19_app/repositories/data_repository.dart';
+import 'package:covid_19_app/repositories/endpoints_data.dart';
 import 'package:covid_19_app/services/api.dart';
-import 'package:covid_19_app/services/api_services.dart';
 import 'package:covid_19_app/utils/localizations.dart';
 import 'package:covid_19_app/utils/utils.dart';
 import 'package:covid_19_app/widgets/info_card.dart';
@@ -15,50 +15,21 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
-  int? _cases;
-  int? _casesSuspected;
-  int? _casesConfirmed;
-  int? _deaths;
-  int? _recovered;
+  EndpointsData? _endpointsData;
+
+  Future<void> _updateData() async {
+    final dataRepository = Provider.of<DataRepository>(context, listen: false);
+    final endpointsData = await dataRepository.getAllEndpointsData();
+
+    setState(() {
+      _endpointsData = endpointsData;
+    });
+  }
 
   @override
   void initState() {
     super.initState();
-    _updateCases();
-  }
-
-  void _updateCases() async {
-    final apiService = APIService(API.sandbox());
-    final accessToken = await apiService.getAccessToken();
-
-    final cases = await apiService.getEndpointData(
-      accessToken: accessToken,
-      endpoint: Endpoint.cases,
-    );
-    final casesSuspected = await apiService.getEndpointData(
-      accessToken: accessToken,
-      endpoint: Endpoint.casesSuspected,
-    );
-    final casesConfirmed = await apiService.getEndpointData(
-      accessToken: accessToken,
-      endpoint: Endpoint.casesConfirmed,
-    );
-    final deaths = await apiService.getEndpointData(
-      accessToken: accessToken,
-      endpoint: Endpoint.deaths,
-    );
-    final recovered = await apiService.getEndpointData(
-      accessToken: accessToken,
-      endpoint: Endpoint.recovered,
-    );
-
-    setState(() {
-      _cases = cases;
-      _casesSuspected = casesSuspected;
-      _casesConfirmed = casesConfirmed;
-      _deaths = deaths;
-      _recovered = recovered;
-    });
+    _updateData();
   }
 
   @override
@@ -70,29 +41,21 @@ class _DashboardScreenState extends State<DashboardScreen> {
         ),
         body: SafeArea(
           child: Center(
-            child: ListView(
-              children: [
-                InfoCard(
-                  title: translate(context, AppText.cases),
-                  value: _cases ?? 0,
-                ),
-                InfoCard(
-                  title: translate(context, AppText.casesConfirmed),
-                  value: _casesSuspected ?? 0,
-                ),
-                InfoCard(
-                  title: translate(context, AppText.casesSuspected),
-                  value: _casesConfirmed ?? 0,
-                ),
-                InfoCard(
-                  title: translate(context, AppText.deaths),
-                  value: _deaths ?? 0,
-                ),
-                InfoCard(
-                  title: translate(context, AppText.recovered),
-                  value: _recovered ?? 0,
-                ),
-              ],
+            child: RefreshIndicator(
+              color: theme(context).primaryColor,
+              backgroundColor: theme(context).scaffoldBackgroundColor,
+              onRefresh: _updateData,
+              child: ListView(
+                children: [
+                  for (var endpoint in Endpoint.values)
+                    InfoCard(
+                      endpoint: endpoint,
+                      value: _endpointsData != null
+                          ? _endpointsData!.values[endpoint]
+                          : 0,
+                    ),
+                ],
+              ),
             ),
           ),
         ),

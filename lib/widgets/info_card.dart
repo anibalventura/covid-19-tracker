@@ -1,3 +1,5 @@
+import 'package:covid_19_app/services/api.dart';
+import 'package:covid_19_app/utils/localizations.dart';
 import 'package:covid_19_app/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -5,16 +7,24 @@ import 'package:intl/intl.dart';
 
 class InfoCard extends StatelessWidget {
   const InfoCard({
-    required this.title,
+    required this.endpoint,
     required this.value,
   });
 
-  final String? title;
+  final Endpoint? endpoint;
   final int? value;
 
   @override
   Widget build(BuildContext context) {
     final nf = NumberFormat('###,###');
+
+    final Map<Endpoint, String> _titles = {
+      Endpoint.cases: translate(context, AppText.cases),
+      Endpoint.casesSuspected: translate(context, AppText.casesSuspected),
+      Endpoint.casesConfirmed: translate(context, AppText.casesConfirmed),
+      Endpoint.deaths: translate(context, AppText.deaths),
+      Endpoint.recovered: translate(context, AppText.recovered),
+    };
 
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 0.01.sh),
@@ -32,7 +42,7 @@ class InfoCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                title!,
+                _titles[endpoint!]!,
                 style: theme(context).textTheme.headline1,
               ),
               SizedBox(height: 0.01.sh),
