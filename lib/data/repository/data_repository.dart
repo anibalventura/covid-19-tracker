@@ -1,4 +1,4 @@
-import 'package:covid_19_app/data/model/endpoints_model.dart';
+import 'package:covid_19_app/data/models/endpoints_model.dart';
 import 'package:covid_19_app/services/api/api.dart';
 import 'package:covid_19_app/services/api/api_services.dart';
 import 'package:flutter/material.dart';

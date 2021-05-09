@@ -1,9 +1,9 @@
 import 'package:covid_19_app/data/repository/data_repository.dart';
-import 'package:covid_19_app/data/model/endpoints_model.dart';
+import 'package:covid_19_app/data/models/endpoints_model.dart';
 import 'package:covid_19_app/services/api/api.dart';
 import 'package:covid_19_app/utils/localizations.dart';
 import 'package:covid_19_app/utils/utils.dart';
-import 'package:covid_19_app/widgets/endpoint_card.dart';
+import 'package:covid_19_app/ui/widgets/endpoint_card.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

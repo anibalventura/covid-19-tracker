@@ -1,4 +1,4 @@
-import 'package:covid_19_app/data/model/endpoint_card_model.dart';
+import 'package:covid_19_app/data/models/endpoint_card_model.dart';
 import 'package:covid_19_app/services/api/api.dart';
 import 'package:covid_19_app/utils/localizations.dart';
 import 'package:covid_19_app/utils/utils.dart';

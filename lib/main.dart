@@ -1,5 +1,5 @@
 import 'package:covid_19_app/data/repository/data_repository.dart';
-import 'package:covid_19_app/screens/dashboard_screen.dart';
+import 'package:covid_19_app/ui/screens/dashboard_screen.dart';
 import 'package:covid_19_app/services/api/api.dart';
 import 'package:covid_19_app/services/api/api_services.dart';
 import 'package:covid_19_app/utils/localizations.dart';
