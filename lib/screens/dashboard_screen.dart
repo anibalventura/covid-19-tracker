@@ -1,6 +1,9 @@
 import 'package:covid_19_app/repositories/data_repository.dart';
 import 'package:covid_19_app/services/api.dart';
 import 'package:covid_19_app/services/api_services.dart';
+import 'package:covid_19_app/utils/localizations.dart';
+import 'package:covid_19_app/utils/utils.dart';
+import 'package:covid_19_app/widgets/info_card.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -62,38 +65,33 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Widget build(BuildContext context) {
     return Consumer<DataRepository>(builder: (context, data, child) {
       return Scaffold(
-        backgroundColor: Colors.blueGrey,
-        appBar: AppBar(title: Text('COVID-19 Tracker')),
+        appBar: AppBar(
+          title: Text(translate(context, AppText.appName)),
+        ),
         body: SafeArea(
           child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+            child: ListView(
               children: [
-                if (_cases != null)
-                  Text(
-                    'Cases: $_cases',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                if (_casesSuspected != null)
-                  Text(
-                    'Cases Suspected: $_casesSuspected',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                if (_casesConfirmed != null)
-                  Text(
-                    'Cases Confirmed: $_casesConfirmed',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                if (_deaths != null)
-                  Text(
-                    'Deaths: $_deaths',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                if (_recovered != null)
-                  Text(
-                    'Recovered: $_recovered',
-                    style: TextStyle(color: Colors.white),
-                  ),
+                InfoCard(
+                  title: translate(context, AppText.cases),
+                  value: _cases ?? 0,
+                ),
+                InfoCard(
+                  title: translate(context, AppText.casesConfirmed),
+                  value: _casesSuspected ?? 0,
+                ),
+                InfoCard(
+                  title: translate(context, AppText.casesSuspected),
+                  value: _casesConfirmed ?? 0,
+                ),
+                InfoCard(
+                  title: translate(context, AppText.deaths),
+                  value: _deaths ?? 0,
+                ),
+                InfoCard(
+                  title: translate(context, AppText.recovered),
+                  value: _recovered ?? 0,
+                ),
               ],
             ),
           ),

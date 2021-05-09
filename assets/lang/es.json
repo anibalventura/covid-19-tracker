@@ -1,0 +1,8 @@
+{
+  "appName": "COVID-19 Tracker",
+  "cases": "Casos",
+  "casesSuspected": "Casos Sospechados",
+  "casesConfirmed": "Casos Confirmados",
+  "deaths": "Muertes",
+  "recovered": "Recuperados"
+}

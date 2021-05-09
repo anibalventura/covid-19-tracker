@@ -1,4 +1,4 @@
-package com.anibalventura.covid_19_app
+package com.anibalventura.covid19tracker
 
 import io.flutter.embedding.android.FlutterActivity
 
