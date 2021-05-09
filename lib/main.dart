@@ -1,3 +1,4 @@
+import 'package:covid_19_tracker/data/cache/data_cache.dart';
 import 'package:covid_19_tracker/data/repository/data_repository.dart';
 import 'package:covid_19_tracker/ui/screens/dashboard_screen.dart';
 import 'package:covid_19_tracker/services/api/api.dart';
@@ -8,14 +9,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  runApp(Covid19App());
+  final SharedPreferences sharedPref = await SharedPreferences.getInstance();
+
+  runApp(Covid19App(sharedPref: sharedPref));
 }
 
 class Covid19App extends StatelessWidget {
+  const Covid19App({required this.sharedPref});
+  final SharedPreferences sharedPref;
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -23,6 +30,9 @@ class Covid19App extends StatelessWidget {
         ChangeNotifierProvider<DataRepository>(
           create: (context) => DataRepository(
             apiService: APIService(API.sandbox()),
+            dataCache: DataCache(
+              sharedPref: sharedPref,
+            ),
           ),
         )
       ],

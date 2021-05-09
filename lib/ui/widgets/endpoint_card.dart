@@ -1,5 +1,4 @@
 import 'package:covid_19_tracker/data/models/endpoint_card_model.dart';
-import 'package:covid_19_tracker/data/models/endpoints_model.dart';
 import 'package:covid_19_tracker/services/api/api.dart';
 import 'package:covid_19_tracker/utils/localizations.dart';
 import 'package:covid_19_tracker/utils/utils.dart';
@@ -10,11 +9,11 @@ import 'package:intl/intl.dart';
 class EndpointCard extends StatelessWidget {
   const EndpointCard({
     required this.endpoint,
-    required this.endpointsData,
+    required this.value,
   });
 
   final Endpoint? endpoint;
-  final EndpointsData? endpointsData;
+  final int? value;
 
   @override
   Widget build(BuildContext context) {
@@ -49,10 +48,9 @@ class EndpointCard extends StatelessWidget {
     final EndpointCardData _cardData = _cardsData[endpoint]!;
 
     String _endpointValue() {
-      if (endpointsData != null) {
+      if (value != null) {
         final nf = NumberFormat('#,###');
-        final value = nf.format(endpointsData!.values[endpoint]!.value);
-        return value;
+        return nf.format(value);
       }
       return '-';
     }

@@ -1,3 +1,4 @@
+import 'package:covid_19_tracker/data/cache/data_cache.dart';
 import 'package:covid_19_tracker/data/models/endpoints_model.dart';
 import 'package:covid_19_tracker/services/api/api.dart';
 import 'package:covid_19_tracker/services/api/api_services.dart';
@@ -5,15 +6,25 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 
 class DataRepository extends ChangeNotifier {
-  DataRepository({required this.apiService});
+  DataRepository({required this.apiService, required this.dataCache});
 
   final APIService apiService;
+  final DataCache dataCache;
   String? _accessToken;
 
+  EndpointsData getAllEndpointsCachedData() {
+    return dataCache.getData();
+  }
+
   Future<EndpointsData> getAllEndpointsData() async {
-    return _getDataRefreshingToken<EndpointsData>(
+    final endpointsData = await _getDataRefreshingToken<EndpointsData>(
       onGetData: _getAllEndpointsData,
     );
+
+    // Save to cache.
+    dataCache.setData(endpointsData);
+
+    return endpointsData;
   }
 
   Future<T> _getDataRefreshingToken<T>({

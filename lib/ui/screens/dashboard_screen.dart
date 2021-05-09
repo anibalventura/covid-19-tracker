@@ -45,6 +45,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
   @override
   void initState() {
     super.initState();
+    _endpointsData = Provider.of<DataRepository>(context, listen: false)
+        .getAllEndpointsCachedData();
     _updateData();
   }
 
@@ -64,12 +66,16 @@ class _DashboardScreenState extends State<DashboardScreen> {
               child: ListView(
                 children: [
                   LastUpdateText(
-                    endpointsData: _endpointsData,
+                    lastUpdateText: _endpointsData != null
+                        ? _endpointsData!.values[Endpoint.cases]?.date
+                        : null,
                   ),
                   for (var endpoint in Endpoint.values)
                     EndpointCard(
                       endpoint: endpoint,
-                      endpointsData: _endpointsData,
+                      value: _endpointsData != null
+                          ? _endpointsData!.values[endpoint]?.value
+                          : null,
                     ),
                 ],
               ),
