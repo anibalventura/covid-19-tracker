@@ -82,7 +82,7 @@ class EndpointCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Image.asset(
-                    'assets/images/${_cardData.assetName}.png',
+                    'assets/images/dashboard/${_cardData.assetName}.png',
                     width: screenPortrait() ? 0.12.sw : 0.06.sw,
                     fit: BoxFit.fill,
                   ),

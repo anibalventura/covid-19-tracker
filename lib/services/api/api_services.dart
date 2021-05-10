@@ -19,7 +19,10 @@ class APIService {
   Future<String> getAccessToken() async {
     final response = await http.post(
       _api.tokenUri(),
-      headers: {'Authorization': 'Basic ${_api.apiKey}'},
+      headers: {
+        'Authorization': 'Basic ${_api.apiKey}',
+        'Access-Control-Allow-Origin': '*',
+      },
     );
 
     if (response.statusCode == 200) {
@@ -40,7 +43,10 @@ class APIService {
   }) async {
     final response = await http.get(
       _api.endpointUri(endpoint),
-      headers: {'Authorization': 'Bearer $accessToken'},
+      headers: {
+        'Authorization': 'Bearer $accessToken',
+        'Access-Control-Allow-Origin': '*',
+      },
     );
 
     if (response.statusCode == 200) {
