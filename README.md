@@ -41,7 +41,6 @@ class APIKeys {
 
 ### Dev Dependencies
 
-- [change_app_package_name](https://pub.dev/packages/change_app_package_name)
 - [lint](https://pub.dev/packages/lint)
 - [flutter_launcher_icons](https://pub.dev/packages/flutter_launcher_icons)
 - [flutter_native_splash](https://pub.dev/packages/flutter_native_splash)
@@ -51,3 +50,4 @@ class APIKeys {
 ```xml
 Copyright 2021 Anibal Ventura
 ```
+Made doing the Udemy course [Flutter REST API Crash Course: Build a Coronavirus App](https://www.udemy.com/course/flutter-rest-api-crash-course-build-a-coronavirus-app/)
