@@ -21,7 +21,7 @@ class EndpointCard extends StatelessWidget {
       Endpoint.cases: EndpointCardData(
         title: translate(context, AppText.cases),
         assetName: AppText.cases,
-        color: Colors.yellow,
+        color: Colors.orange,
       ),
       Endpoint.casesSuspected: EndpointCardData(
         title: translate(context, AppText.casesSuspected),
@@ -56,16 +56,20 @@ class EndpointCard extends StatelessWidget {
     }
 
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 0.01.sh),
+      padding: EdgeInsets.symmetric(
+        vertical: screenPortrait() ? 0.01.sh : 0.02.sh,
+      ),
       child: Card(
-        margin: EdgeInsets.symmetric(horizontal: 0.05.sw),
+        margin: EdgeInsets.symmetric(
+          horizontal: screenPortrait() ? 0.05.sw : 0.15.sw,
+        ),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.r),
+          borderRadius: BorderRadius.circular(20.r),
         ),
         child: Padding(
           padding: EdgeInsets.symmetric(
-            vertical: 0.02.sh,
-            horizontal: 0.05.sw,
+            vertical: screenPortrait() ? 0.02.sh : 0.04.sh,
+            horizontal: screenPortrait() ? 0.05.sw : 0.03.sw,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -74,13 +78,12 @@ class EndpointCard extends StatelessWidget {
                 _cardData.title!,
                 style: theme(context).textTheme.headline1,
               ),
-              SizedBox(height: 0.01.sh),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Image.asset(
                     'assets/images/${_cardData.assetName}.png',
-                    width: 0.12.sw,
+                    width: screenPortrait() ? 0.12.sw : 0.06.sw,
                     fit: BoxFit.fill,
                   ),
                   Text(

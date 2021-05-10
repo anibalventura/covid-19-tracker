@@ -23,7 +23,9 @@ class LastUpdateText extends StatelessWidget {
     }
 
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 0.005.sh),
+      padding: EdgeInsets.symmetric(
+        vertical: screenPortrait() ? 0.005.sh : 0.01.sh,
+      ),
       child: Text(
         _lastUpdatedText(),
         textAlign: TextAlign.center,

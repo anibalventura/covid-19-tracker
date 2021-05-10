@@ -7,3 +7,4 @@ linter:
     avoid_classes_with_only_static_members: false
     avoid_void_async: false
     sort_pub_dependencies: false
+    avoid_bool_literals_in_conditional_expressions: false

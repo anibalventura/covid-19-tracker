@@ -23,7 +23,7 @@ class Themes {
   // Text Styles.
   static final TextStyle _lightHeadline1 = TextStyle(
     fontSize: 18.sp,
-    fontWeight: FontWeight.w700,
+    fontWeight: FontWeight.w600,
     color: _lightPrimaryTextColor,
   );
 
