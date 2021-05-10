@@ -32,6 +32,11 @@ class Themes {
     fontWeight: FontWeight.w400,
   );
 
+  static final TextStyle _lightBodyText2 = _lightHeadline1.copyWith(
+    fontSize: 10.sp,
+    fontWeight: FontWeight.w400,
+  );
+
   // Icon.
   static final IconThemeData _iconThemeLight = IconThemeData(
     color: _primaryColorLight,
@@ -48,6 +53,7 @@ class Themes {
     textTheme: TextTheme(
       headline1: _lightHeadline1,
       bodyText1: _lightBodyText1,
+      bodyText2: _lightBodyText2,
     ),
     fontFamily: _fontFamily,
   );
@@ -71,6 +77,10 @@ class Themes {
     color: _darkPrimaryTextColor,
   );
 
+  static final TextStyle _darkBodyText2 = _lightBodyText2.copyWith(
+    color: _darkPrimaryTextColor,
+  );
+
   // Icon.
   static final IconThemeData _iconThemeDark = _iconThemeLight.copyWith(
     color: _primaryColorDark,
@@ -86,6 +96,7 @@ class Themes {
     textTheme: TextTheme(
       headline1: _darkHeadline1,
       bodyText1: _darkBodyText1,
+      bodyText2: _darkBodyText2,
     ),
   );
 }

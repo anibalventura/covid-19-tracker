@@ -29,6 +29,7 @@ class LastUpdateText extends StatelessWidget {
       child: Text(
         _lastUpdatedText(),
         textAlign: TextAlign.center,
+        style: theme(context).textTheme.bodyText2,
       ),
     );
   }

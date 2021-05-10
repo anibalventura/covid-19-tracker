@@ -55,7 +55,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
     return Consumer<DataRepository>(builder: (context, data, child) {
       return Scaffold(
         appBar: AppBar(
-          title: Text(translate(context, AppText.appName)),
+          title: Text(
+            translate(context, AppText.appName),
+            style: theme(context).textTheme.bodyText1,
+          ),
         ),
         body: SafeArea(
           child: Center(
